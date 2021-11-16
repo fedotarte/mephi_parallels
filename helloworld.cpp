@@ -1,30 +1,47 @@
 #include <iostream>
-#include <thread>
-#include <chrono>
-#include <string>
+#include <algorithm>
+#include <random>
+#include <stdio.h>
+#include <math.h>
 
-using namespace std;
-
-void DoSheit()
-{
-    for (size_t i = 0; i < 10; i++)
-    {
-        this_thread::sleep_for(chrono::milliseconds(700));
-        cout << "Thread ID is: " << this_thread::get_id() << "\tDoSheit " << i << endl;
-    }
-}
+#define PI 3.14159265
 
 int main()
 {
-    setlocale(LC_ALL, "ru");
-    thread th(DoSheit);
-    thread th2(DoSheit);
-    for (size_t i = 0; i < 10; i++)
+    HANDLE mkEvent() { return CreateEvent(NULL, FALSE, FALSE, NULL); }
+    int theta, r = 1;
+    std::random_device dev;
+    std::mt19937 rng(dev());
+    std::uniform_int_distribution<std::mt19937::result_type> dist6(1, 100);
+    // cout << dist6(rng) << std::endl;
+    const int SIZE = dist6(rng);
+    printf("randomed num is: (%d)", SIZE);
+
+    int arr[SIZE];
+    std::fill(arr, arr + SIZE, 1);
+
+    for (size_t i = 0; i < SIZE - 1; i++)
     {
-        this_thread::sleep_for(chrono::milliseconds(500));
-        cout << "Thread ID is: " << this_thread::get_id() << "\tmain " << i << endl;
+        std::cout << arr[i];
     }
-    th.join();
-    th2.join();
+
+    // float x, y, r, theta;
+    // clrscr();
+    // printf("Enter radius of polar coordinate (r): ");
+    // scanf("%f", &r);
+    // printf("Enter angle of polar coordinate in degree (theta): ");
+    // scanf("%f", &theta);
+
+    /* from degree to radian */
+    theta = theta * PI / 180.0;
+
+    /* Calculating cartesian coordinate x */
+    double x = r * cos(theta);
+
+    /* Calculating cartesian coordinate y */
+    double y = r * sin(theta);
+
+    // printf("Cartesian coordinates is: (%0.3f, %0.3f)", x, y);
+    // getch();
     return 0;
 }
