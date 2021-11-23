@@ -24,3 +24,16 @@
 cl.exe /Zi /EHsc /nologo /Fe: ${dirname}\helloworld.exe ${dirname}\helloworld.cpp /utf-8
 helloworld.cpp
 ```
+### Собранные исполняемые файлы:
+Под каждой директорией с номером задания лежит исполняемый файл под линуксы(без расширения) и винду(.exe). 
+Там, где юзается winapi - только экзешник.
+
+запускать исполняемые файлы под винду: 
+```poweshell
+.\events_threads_buffe
+```
+
+или CMD 
+```cmd
+events_threads_buffer.exe
+```
