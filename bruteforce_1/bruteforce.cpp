@@ -2,7 +2,7 @@
 #include <limits>
 #include <cmath>
 // vse taki sdelat s krugami
-double f(double x)
+double calculate(double x)
 {
     return sin(5 * pow(x, 3)) + cos(7 * pow(x, 4)) * x;
 }
@@ -21,7 +21,7 @@ int main()
 
     while (x < max_x)
     {
-        cur_f = f(x);
+        cur_f = calculate(x);
         if (cur_f < min_y)
         {
             min_y = cur_f;

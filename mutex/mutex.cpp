@@ -1,13 +1,11 @@
 #include <windows.h>
 #include <stdio.h>
 
-#define THREADCOUNT 4
+#define THREADCOUNT 4 // 4 threds
 
 HANDLE ghMutex;
 
 DWORD WINAPI WriteToDatabase(LPVOID);
- //   'https://dev-api-internal-op.apigee.lmru.tech/orders/detailed-solution/v1/detailed-solutions:search?page=0&size=20&required=payment&required=fulfillment&required=delivery' \
-// https://test-api-internal-op.apigee.lmru.tech/orders/detailed-solution/v1/detailed-solutions:search?page=0&size=10
 int main(void)
 {
     HANDLE aThread[THREADCOUNT];
@@ -19,7 +17,7 @@ int main(void)
     ghMutex = CreateMutex(
         NULL,             // default security attributes
         FALSE,            // initially not owned
-        "MutextSheeeit"); // unnamed mutex
+        "MutextSheeeit"); // named mutex
 
     if (ghMutex == NULL)
     {
