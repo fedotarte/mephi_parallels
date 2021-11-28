@@ -1,0 +1,1 @@
+## C g++ компилить с флагом в конце `-lpthread` иначе будет орать на undefined reference 

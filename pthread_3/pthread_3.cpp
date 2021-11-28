@@ -8,7 +8,7 @@ only for linux/osx
 
 using namespace std;
 
-double calculateY(double x)
+double WTFFunction(double x)
 {
     return sin(5 * pow(x, 3)) + cos(7 * pow(x, 4)) * x;
 }
@@ -22,7 +22,6 @@ struct thread_params
 
 const int N = 5;             // thread quantity
 double min_x_[N], min_y_[N]; //arrays for threads
-
 
 void *get_minimums(void *task)
 {
@@ -38,7 +37,7 @@ void *get_minimums(void *task)
 
     while (x < b)
     {
-        cur_f = calculateY(x);
+        cur_f = WTFFunction(x);
         if (cur_f < min_y)
         {
             min_y = cur_f;
@@ -50,8 +49,9 @@ void *get_minimums(void *task)
     std::cout << "thread " << params->thread_num << " "
               << min_y << " " << min_x << std::endl;
 
-    min_y_[id] = min_y; // TODO rename array
+    min_y_[id] = min_y;
     min_x_[id] = min_x;
+    return 0;
 }
 
 int main()
