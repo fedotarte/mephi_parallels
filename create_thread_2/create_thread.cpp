@@ -1,11 +1,11 @@
-#ifndef NOMINMAX
-#define NOMINMAX
-#endif
-
 #include <iostream>
 #include <limits>
 #include <cmath>
 #include <windows.h>
+
+#ifndef NOMINMAX
+#define NOMINMAX
+#endif
 
 double f(double x) {
 	return sin(5 * pow(x, 3)) + cos(7 * pow(x, 4)) * x;
