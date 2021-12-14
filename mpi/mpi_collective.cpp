@@ -38,7 +38,11 @@ int main(int argc, char** argv)
     mm_local = MinMaxHelper(start + world_rank * perproc, start + (world_rank + 1) * perproc, delta);
 
     MPI_Reduce(&mm_local.first, &global_minimum, 1, MPI_DOUBLE, MPI_MIN, 0, MPI_COMM_WORLD);
+//     if(rank!= 0){
+//       MPI_Send(&MinMaxHelper, 4, )
+//     }
     MPI_Reduce(&mm_local.second, &global_maximum, 1, MPI_DOUBLE, MPI_MAX, 0, MPI_COMM_WORLD);
+   
 
     if (world_rank == 0) {
         cout << "MIN is : " << global_minimum << endl;
