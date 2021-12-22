@@ -113,4 +113,9 @@ graph.addVertex(new Vertex(
     graph.setPathToNodes("C", 5)
     ]));
 
+/**
+ * for A, D
+ * expected [ 'A', 'B', 'D', '9' ]
+ */
+
 console.log(graph.findShortestWay("A", "D"));
