@@ -83,7 +83,7 @@ int main(int argc, char *argv[])
         }
         cout << endl;
 
-        // Get results
+        // получаем результат
         for (source = 1; source < num_nodes; source++)
         {
             MPI_Recv(buffer, MSGSIZE, MPI_INT, source, TAG, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
