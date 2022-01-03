@@ -3,23 +3,22 @@
 	"tasks": [
 		{
 			"type": "shell",
-			"label": "clang++ build active file",
-			"command": "/usr/bin/clang++",
+			"label": "cl.exe build active file",
+			"command": "cl.exe",
 			"args": [
-				"-std=c++17",
-				"-stdlib=libc++",
-				"-g",
-				"${file}",
-				"-o",
-				"${fileDirname}/${fileBasenameNoExtension}"
+				"/Zi",
+				"/EHsc",
+				"/Fe:",
+				"${fileDirname}\\${fileBasenameNoExtension}.exe",
+				"${file}"
 			],
-			"options": {
-				"cwd": "${workspaceFolder}"
-			},
 			"problemMatcher": [
-				"$gcc"
+				"$msCompile"
 			],
-			"group": "build"
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
 		},
 		{
 			"type": "cppbuild",
